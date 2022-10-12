@@ -40,7 +40,9 @@ jobs:
       # install dependencies
       - name: Install dependencies
         if: steps.cache-dependencies.outputs.cache-hit != 'true'
-        run: pipenv install --dev --verbose
+        run: |
+          pipenv install --dev --verbose
+          pipenv install types-requests --dev
 
       # Run bash script
       - name: run Bash script
